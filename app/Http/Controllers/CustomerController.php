@@ -18,7 +18,7 @@ class CustomerController extends Controller
         $customers = Customer::all();
         $customers->load(['user']);
 
-        return response()->json(['customers' => UserResource::collection($customers)], 201);
+        return response()->json(['customers' => UserResource::collection($customers)], 200);
     }
 
     /**
@@ -46,7 +46,7 @@ class CustomerController extends Controller
     public function show(Customer $customer)
     {
         $customer->load(['user']);
-        return response()->json(['customer' => new UserResource($customer)], 201);
+        return response()->json(['customer' => new UserResource($customer)], 200);
     }
 
     /**
@@ -67,6 +67,6 @@ class CustomerController extends Controller
     public function destroy(Customer $customer)
     {
         $customer->delete();
-        return response()->json([], 201);
+        return response()->json([], 200);
     }
 }

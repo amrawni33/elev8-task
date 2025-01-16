@@ -20,7 +20,7 @@ class ActionController extends Controller
         $actions = Action::all();
         $actions->load(['user', 'customer']);
 
-        return response()->json(['actions' => ActionResource::collection($actions)], 201);
+        return response()->json(['actions' => ActionResource::collection($actions)], 200);
     }
 
     /**
@@ -49,7 +49,7 @@ class ActionController extends Controller
     public function show(Action $action)
     {
         $action->load(['user', 'customer']);
-        return response()->json(['action' => new ActionResource($action)], 201);
+        return response()->json(['action' => new ActionResource($action)], 200);
     }
 
     /**
@@ -69,6 +69,6 @@ class ActionController extends Controller
     public function destroy(Action $action)
     {
         $action->delete();
-        return response()->json([], 201);
+        return response()->json([], 200);
     }
 }

@@ -28,7 +28,7 @@ class AuthController extends Controller
             $data['user'] = new UserResource($user);
             $data['token'] = $user->createToken('my-app-token')->plainTextToken;
 
-            return response()->json([$data], 201);
+            return response()->json([$data], 200);
         } else {
             return response()->json([__('auth.failed')], 401);
         }

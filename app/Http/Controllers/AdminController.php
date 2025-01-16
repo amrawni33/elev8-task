@@ -19,7 +19,7 @@ class AdminController extends Controller
         $employee = User::create($validated);
         $employee->assignRole('employee');
 
-        return response()->json(['employee' => new UserResource($employee)], 201);
+        return response()->json(['employee' => new UserResource($employee)], 200);
     }
 
     public function assignCustomerToEmployee(Request $request, Customer $customer)
